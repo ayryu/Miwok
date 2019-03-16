@@ -16,8 +16,11 @@
 package com.example.android.miwok; //what follows the package keyword is the package name
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +30,45 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        //Finds the View that shows each of the categories
+        TextView colours = (TextView)findViewById(R.id.colours);
+        TextView family = (TextView)findViewById(R.id.family);
+        TextView numbers = (TextView)findViewById(R.id.numbers);
+        TextView phrases = (TextView)findViewById(R.id.phrases);
+
+        //Sets a clickListener on each View
+        colours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent coloursIntent = new Intent(MainActivity.this, ColoursActivity.class);
+                startActivity(coloursIntent);
+            }
+        });
+
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(familyIntent);
+            }
+        });
+
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numbersIntent);
+            }
+        });
+
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
     }
+
 }
